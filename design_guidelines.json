@@ -1,0 +1,120 @@
+{
+  "theme_and_archetype": {
+    "theme": "Context-Dependent (Toggleable Day/Night)",
+    "archetype": "Archetype 5: Jewel & Luxury",
+    "description": "An elegant, spiritual, and high-end Islamic application relying on rich colors (#355070 for day, #2D2438 for night), gold/copper accents, and premium typography. The design must feel reverent, calm, and accessible with full RTL support."
+  },
+  "global_rules": {
+    "direction": "rtl",
+    "html_attributes": "dir='rtl' lang='ar'",
+    "accessibility": "High contrast ratio for Arabic script, touch targets minimum 48px, screen-reader friendly attributes, and specific ARIA labels for audio controls."
+  },
+  "typography": {
+    "fonts": {
+      "heading": "Cairo, sans-serif",
+      "body": "Tajawal, sans-serif",
+      "script_dhikr": "Amiri, serif",
+      "installation_instructions": "Import Google Fonts: @import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@400;600;700;800&family=Tajawal:wght@400;500;700&display=swap');"
+    },
+    "scales": {
+      "h1": "text-4xl md:text-5xl font-cairo font-bold leading-tight tracking-normal",
+      "h2": "text-2xl md:text-3xl font-cairo font-bold leading-tight",
+      "h3": "text-xl md:text-2xl font-cairo font-semibold",
+      "body_ui": "text-base md:text-lg font-tajawal",
+      "dhikr_text": "text-2xl md:text-3xl font-amiri leading-loose text-center md:text-right"
+    },
+    "alignment": "Right-aligned by default due to RTL, except for specific Dhikr text which can be centered for emphasis."
+  },
+  "colors": {
+    "day_mode": {
+      "background": "#355070",
+      "surface": "#46658A",
+      "surface_glass": "rgba(53, 80, 112, 0.7)",
+      "text_primary": "#FFFFFF",
+      "text_secondary": "#E2E8F0"
+    },
+    "night_mode": {
+      "background": "#2D2438",
+      "surface": "#413451",
+      "surface_glass": "rgba(45, 36, 56, 0.7)",
+      "text_primary": "#F8FAFC",
+      "text_secondary": "#CBD5E1"
+    },
+    "accents": {
+      "gold": "#D4AF37",
+      "gold_light": "#F2D77D",
+      "copper": "#B87333",
+      "success": "#10B981"
+    }
+  },
+  "components": {
+    "welcome_screen": {
+      "layout": "Flex column, centered, full height (min-h-screen).",
+      "visuals": "Use 'geometric_background_day' or 'night' as full-screen background with a dark overlay (bg-black/40).",
+      "elements": "Large app title 'أذكاري', elegant subtitle, and a prominent 'Download Audio (~60MB)' button.",
+      "button_style": "bg-[#D4AF37] hover:bg-[#B87333] text-black font-cairo font-bold rounded-full py-4 px-8 shadow-lg transition-transform hover:scale-105"
+    },
+    "bottom_navigation": {
+      "layout": "Fixed bottom, w-full, glassmorphism surface (backdrop-blur-xl).",
+      "style": "bg-black/20 border-t border-white/10. Active item highlighted with gold text and an indicator dot.",
+      "icons": "Use lucide-react or @phosphor-icons/react (e.g., Home, Book, Clock, Settings)."
+    },
+    "dhikr_card": {
+      "layout": "Relative container, p-6 or p-8, rounded-2xl or rounded-3xl.",
+      "surface": "Solid background matching theme's surface color or subtle glass. 1px border of white/10.",
+      "content": "Amiri font for Arabic script, Audio Player (Play/Pause, Progress bar), Counter button at bottom.",
+      "counter_button": "Large circular or pill-shaped button. Starts with target count. Shows progress (e.g., 1/3). When completed, transitions to a success state (vibrates, turns gold or green)."
+    },
+    "digital_tasbih": {
+      "layout": "Central focal point. Use 'digital_tasbih' image as visual reference or backdrop.",
+      "interaction": "Massive central tap area. Haptic feedback (if possible in web environment, simulate with visual pulse).",
+      "visual_feedback": "On every tap, the counter number briefly scales up (scale-110) and returns."
+    },
+    "popup_modal": {
+      "usage": "Post-Adhan dua popup.",
+      "visuals": "Prophet Mosque Madinah image at the top half, dua text in the bottom half. Rounded-2xl, soft shadow-2xl."
+    }
+  },
+  "spacing_and_layout": {
+    "container": "max-w-md mx-auto relative min-h-screen pb-24",
+    "padding": "Generous padding: p-4 to p-6 for mobile cards to let the Arabic script breathe."
+  },
+  "motion_and_interaction": {
+    "page_transitions": "Framer Motion: Fade in and subtle slide up (y: 10 -> 0) for smooth navigation between tabs.",
+    "counter_tap": "Framer Motion: whileTap={{ scale: 0.95 }} for the Dhikr counter and Tasbih button."
+  },
+  "icons_and_assets": {
+    "library": "lucide-react",
+    "instructions": "Ensure icons are flipped if they possess directionality, though most bottom nav icons are symmetrical. Import icons dynamically."
+  },
+  "media": {
+    "geometric_background_day": {
+      "url": "https://static.prod-images.emergentagent.com/jobs/dce11d34-2ba4-4431-b8a4-c4429f74ac6d/images/479150ae83126462622680af692f833bf5338320e2ace7c8bd9d8d6b1312c494.png",
+      "description": "Elegant gold and deep blue Islamic geometric pattern background, used for day mode splash/welcome screens."
+    },
+    "geometric_background_night": {
+      "url": "https://static.prod-images.emergentagent.com/jobs/dce11d34-2ba4-4431-b8a4-c4429f74ac6d/images/38b4c2660d186a55ee6ab1c1ebc4f40f0684afaaf3473681d64dc024f6b3a49d.png",
+      "description": "Elegant gold and deep purple Islamic geometric pattern background, used for night mode splash/welcome screens."
+    },
+    "digital_tasbih": {
+      "url": "https://static.prod-images.emergentagent.com/jobs/dce11d34-2ba4-4431-b8a4-c4429f74ac6d/images/873e3e218e1dabf01faddfc590d6a239aa33a1735f63e1e13ca13a8e9be1adf6.png",
+      "description": "Luxurious digital tasbih beads counter, 3D render, dark purple background, used as visual element in the tasbih section."
+    },
+    "prophet_mosque": {
+      "url": "https://images.unsplash.com/photo-1692566123227-0f68f1b9dac6?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAzMzN8MHwxfHNlYXJjaHwyfHxwcm9waGV0JTIwbW9zcXVlJTIwbWFkaW5haHxlbnwwfHx8fDE3Nzg4NjI4Nzh8MA&ixlib=rb-4.1.0&q=85",
+      "description": "Prophet Mosque Madinah, used for the post-adhan dua popup."
+    },
+    "prophet_mosque_alt": {
+      "url": "https://images.unsplash.com/photo-1711261817080-8f064416206c?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAzMzN8MHwxfHNlYXJjaHwxfHxwcm9waGV0JTIwbW9zcXVlJTIwbWFkaW5haHxlbnwwfHx8fDE3Nzg4NjI4Nzh8MA&ixlib=rb-4.1.0&q=85",
+      "description": "Alternative Prophet Mosque image with clock tower context."
+    }
+  },
+  "instructions_to_main_agent": [
+    "CRITICAL: Apply dir='rtl' to the root HTML or main wrapper to enforce Right-to-Left layout. Text alignment should inherently follow RTL.",
+    "Ensure Tailwind configuration includes the custom colors: #355070 for light/day theme background, and #2D2438 for dark/night theme background.",
+    "For the Arabic text, load Google Fonts 'Amiri' (for Dhikr text), 'Cairo' (for Headers), and 'Tajawal' (for UI body text). Extend tailwind config theme.fontFamily.",
+    "Since it's a mobile web app, restrict maximum width using 'max-w-md mx-auto' to simulate a mobile frame on desktop, keeping 'min-h-screen'.",
+    "Implement the Bottom Navigation cleanly with glassmorphism to not obstruct content but remain highly legible.",
+    "Add 'data-testid' to all buttons, navigation items, and interactive components like the Dhikr counter and audio controls."
+  ]
+}
