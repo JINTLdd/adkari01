@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const baseDir = path.join(__dirname, '..', 'frontend', 'android', 'app', 'src', 'main', 'java', 'com', 'jintl001', 'adhkari');
+const baseDir = path.join(__dirname, 'android', 'app', 'src', 'main', 'java', 'com', 'jintl001', 'adhkari');
 
 if (!fs.existsSync(baseDir)) {
   console.error('Android directory not found:', baseDir);
@@ -298,7 +298,7 @@ if (!mainApp.includes('AdhkariAlarmsPackage')) {
 }
 
 // Fix AndroidManifest.xml
-const manifestPath = path.join(__dirname, '..', 'frontend', 'android', 'app', 'src', 'main', 'AndroidManifest.xml');
+const manifestPath = path.join(__dirname, 'android', 'app', 'src', 'main', 'AndroidManifest.xml');
 let manifest = fs.readFileSync(manifestPath, 'utf8');
 if (!manifest.includes('PrayerAlarmReceiver')) {
   manifest = manifest.replace('</application>', `    <receiver android:name=".PrayerAlarmReceiver" android:exported="false"/>
